@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Panel Generator</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="script.js"></script>
+	</head>
+
+	<body>
+
+		<h1>Panel Generator</h1>
+		<section>
+			<div class="menuArea">
+				<h3>No. of panels:</h3>
+				<input type="range" id="noOfPanels" value="5" min=1 max=10 step=1>
+
+				<h3>Dynamic:</h3>
+				<input type="range" id="dynamic" value="5" min=0 max=10 pattern="\d*">
+
+				<h3>Vanishing panels:</h3>
+				<input type="range" id="vanishing" value="5" min=0 max=10 pattern="\d*">
+
+				<h3>Horizontal/Vertical splitting:</h3>
+				<input type="range" id="verticalRatio" value="5" min=0 max=10 pattern="\d*">
+
+				<h3>Golden Ratio :</h3>
+				<input type="range" id="goldenRatio" value="5" min=0 max=10 pattern="\d*">
+
+				<h3>Bordering :</h3>
+				<input type="range" id="bordering" value="5" min=0 max=10 pattern="\d*"><br>
+
+
+				<button id="button-generate" onclick="initialise()">Generate</button>
+
+				<h3>Presets :</h3>
+				<button id="button-style-shounen" onclick="shounenStyle()">Shounen</button>
+				<button id="button-style-shoujo" onclick="shoujoStyle()">Shoujo</button><br>
+				<button id="button-style-gag" onclick="gagStyle()">Gag</button>
+				<button id="button-style-doujin" onclick="doujinStyle()">Doujin</button><br><br>
+				<button id="reset-to-default" onclick="resetToDefault()">Reset to default</button>
+			</div>
+
+			<div class="canvasArea">
+				<canvas id="canvas" width="800" height="600" onclick="initialise()"></canvas>
+			</div>
+
+			<div class="settingsArea">
+				<h3>Reading Order:</h3>
+				<input type="radio" id="ro_left" name="readingOrder" value=1 checked="checked">
+				<label for="ro_left">Right to Left</label><br>
+				<input type="radio" id="ro_right" name="readingOrder" value=0>
+				<label for="ro_right">Left to Right</label><br>
+
+				<h3>Page Side:</h3>
+				<input type="radio" id="ps_left" name="pageSide" value="left" checked="checked">
+				<label for="ps_left">Left</label>
+				<input type="radio" id="ps_right" name="pageSide" value="right">
+				<label for="ps_right">Right</label><br>
+
+				<h3>Page Size :</h3>
+				<input type="number" id="pageWidth" value="148" min=0 max=1000 pattern="\d*" onclick="initialise()">
+				<label for="pageWidth">Width: </label><br>
+				<input type="number" id="pageHeight" value="210" min=0 max=1000 pattern="\d*">
+				<label for="pageHeight">Height: </label><br>
+
+				<input type="number" id="innerWidth" value="125" min=0 max=1000 pattern="\d*">
+				<label for="innerWidth">Inner Width: </label><br>
+				<input type="number" id="innerHeight" value="180" min=0 max=1000 pattern="\d*">
+				<label for="innerHeight">Inner Height: </label><br>
+
+				<input type="number" id="bleed" value="5" min=0 max=1000 pattern="\d*">
+				<label for="bleed">Bleed: </label><br>
+
+				<h3>Margins :</h3>
+				<input type="number" id="hmargin" value="1" min=0.1 max=5>
+				<label for="hmargin">Horizontal Margin: </label><br>
+				<input type="number" id="vmargin" value="2.6" min=0.1 max=5>
+				<label for="vmargin">Vertical Margin: </label><br>
+
+			</div>
+		</section>
+
+	</body>
+	<footer>
+		By Jason Malcolm
+	</footer>
+
+</html>
